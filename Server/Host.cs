@@ -30,7 +30,7 @@ namespace Server
                     _clients.Add(sender);
 
                 Context.Watch(sender);
-                Sender.Tell(new Subscription(Self, _bufferedMessages));
+                sender.Tell(new Subscription(Self, _bufferedMessages));
             });
 
             Receive<Terminated>(t =>
